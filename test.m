@@ -1,7 +1,10 @@
-% testing file for impulse_response.m
-% created by Josephine Wong, 09/18/2016
+% using jb's test.m file
+% This tests whether the impulse_response.m function works
 
-x = [1,2,3];
-y = [10,11,12];
-fs = 100;
-[h,t] = impulse_response(x,y,fs);
+fs=10;
+t=-1:1/fs:1;
+x=cos(2*pi*t);    % input signal
+y=3*cos(2*pi*t);  % output signal
+[h,t]=impulse_response(x,y,fs);   % we expect the impulse response to be
+amplitude=(1/fs)*trapz(h)         % a dirac delta with amplitude 3
+ 
